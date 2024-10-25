@@ -7,23 +7,7 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
-
-interface Image {
-	id: string;
-	urls: {
-		small: string;
-		regular: string;
-	};
-	description: string;
-	likes: number;
-	user: {
-		first_name: string;
-		last_name: string;
-		links: {
-			html: string;
-		};
-	};
-}
+import { Image } from "../../interfaces";
 
 export default function App() {
 	const [images, setImages] = useState<Image[]>([]);

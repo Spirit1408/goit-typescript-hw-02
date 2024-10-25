@@ -1,22 +1,9 @@
 import ImageCard from "./ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
+import { Image } from "../../interfaces";
 
 interface ImageGalleryProps {
-	items: {
-		id: string;
-		urls: {
-			small: string;
-		};
-		description: string;
-		likes: number;
-		user: {
-			first_name: string;
-			last_name: string;
-			links: {
-				html: string;
-			};
-		};
-	}[];
+	items: Image[];
 	query: string;
 	handleClick: (image: unknown) => void;
 }

@@ -1,23 +1,10 @@
 import css from "./ImageCard.module.css";
 import { PiUserSquareFill } from "react-icons/pi";
 import { BsDownload } from "react-icons/bs";
+import { Image } from "../../../interfaces";
 
 interface ImageCardProps {
-	item: {
-		id: string;
-		urls: {
-			small: string;
-		};
-		description: string;
-		likes: number;
-		user: {
-			first_name: string;
-			last_name: string;
-			links: {
-				html: string;
-			};
-		};
-	};
+	item: Image;
 	clickOnImage: (image: unknown) => void;
 }
 
