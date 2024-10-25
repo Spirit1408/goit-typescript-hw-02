@@ -7,7 +7,23 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
-import { Image } from "../../interfaces";
+
+interface Image {
+	id: string;
+	urls: {
+		small: string;
+		regular: string;
+	};
+	description: string;
+	likes: number;
+	user: {
+		first_name: string;
+		last_name: string;
+		links: {
+			html: string;
+		};
+	};
+}
 
 export default function App() {
 	const [images, setImages] = useState<Image[]>([]);
@@ -30,7 +46,7 @@ export default function App() {
 
 			setImages(images);
 			setTotalPages(totalPages);
-		} catch (error) {
+		} catch (error: any) {
 			setError(true);
 			toast.error(error.message);
 		} finally {
@@ -50,7 +66,7 @@ export default function App() {
 			if (nextPage >= totalPages) {
 				toast.success("No more images to show!");
 			}
-		} catch (error) {
+		} catch (error: any) {
 			setError(true);
 			toast.error(error.message);
 		} finally {
