@@ -23,6 +23,9 @@ interface Image {
 			html: string;
 		};
 	};
+	links: {
+		download: string;
+	};
 }
 
 export default function App() {
