@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 import css from "./SearchBar.module.css";
 import { IoSearchOutline } from "react-icons/io5";
 
-interface SearchBarProps {
+type SearchBarProps = {
 	onSearch: (query: string) => void;
 }
 

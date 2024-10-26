@@ -2,31 +2,12 @@ import toast, { Toaster } from "react-hot-toast";
 import SearchBar from "../SearchBar/SearchBar";
 import { useState } from "react";
 import { fetchImages } from "../../unsplash-api";
+import type { Image } from "../../unsplash-api";
 import Loader from "../Loader/Loader";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
-
-interface Image {
-	id: string;
-	urls: {
-		small: string;
-		regular: string;
-	};
-	description: string;
-	likes: number;
-	user: {
-		first_name: string;
-		last_name: string;
-		links: {
-			html: string;
-		};
-	};
-	links: {
-		download: string;
-	};
-}
 
 export default function App() {
 	const [images, setImages] = useState<Image[]>([]);

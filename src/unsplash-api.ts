@@ -2,33 +2,35 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://api.unsplash.com/";
 
-interface Response {
-	results: {
-		id: string;
-		urls: {
-			small: string;
-			regular: string;
-		};
-		description: string;
-		likes: number;
-		user: {
-			first_name: string;
-			last_name: string;
-			links: {
-				html: string;
-			};
-		};
+export type Image = {
+	id: string;
+	urls: {
+		small: string;
+		regular: string;
+	};
+	description: string;
+	likes: number;
+	user: {
+		first_name: string;
+		last_name: string;
 		links: {
-			download: string;
+			html: string;
 		};
-	}[];
+	};
+	links: {
+		download: string;
+	};
+};
+
+type Response = {
+	results: Image[];
 	total: number;
-}
+};
 
 export const fetchImages = async (
 	query: string,
 	page = 1,
-): Promise<{ images: Response["results"]; totalPages: number }> => {
+): Promise<{ images: Image[]; totalPages: number }> => {
 	const response = await axios.get<Response>("/search/photos", {
 		params: {
 			query,

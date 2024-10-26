@@ -1,28 +1,12 @@
 import ImageCard from "./ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
+import type { Image } from "../../unsplash-api";
 
-interface ImageGalleryProps {
-	items: {
-		id: string;
-		urls: {
-			small: string;
-		};
-		description: string;
-		likes: number;
-		user: {
-			first_name: string;
-			last_name: string;
-			links: {
-				html: string;
-			};
-		};
-		links: {
-			download: string;
-		};
-	}[];
+type ImageGalleryProps = {
+	items: Image[];
 	query: string;
 	handleClick: (image: any) => void;
-}
+};
 
 export default function ImageGallery({
 	items,

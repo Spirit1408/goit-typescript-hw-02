@@ -1,28 +1,18 @@
 import css from "./ImageCard.module.css";
 import { PiUserSquareFill } from "react-icons/pi";
 import { BsDownload } from "react-icons/bs";
+import type { Image } from "../../../unsplash-api";
 
-interface ImageCardProps {
-	item: {
-		id: string;
-		urls: {
-			small: string;
-		};
-		description: string;
-		likes: number;
-		user: {
-			first_name: string;
-			last_name: string;
-			links: {
-				html: string;
-			};
-		};
-		links: {
-			download: string;
-		};
+type ImageCardItem = Omit<Image, "urls"> & {
+	urls: {
+		small: string;
 	};
+};
+
+type ImageCardProps = {
+	item: ImageCardItem;
 	clickOnImage: (image: any) => void;
-}
+};
 
 export default function ImageCard({ item, clickOnImage }: ImageCardProps) {
 	console.log(item);

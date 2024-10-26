@@ -1,8 +1,8 @@
 import css from "./LoadMoreBtn.module.css";
 
-interface LoadMoreBtnProps {
+type LoadMoreBtnProps = {
 	onClick: () => void;
-}
+};
 
 export default function LoadMoreBtn({ onClick }: LoadMoreBtnProps) {
 	return (

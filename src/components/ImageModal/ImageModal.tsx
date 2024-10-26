@@ -1,18 +1,18 @@
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
+import type { Image } from "../../unsplash-api";
 
 Modal.setAppElement("#root");
 
-interface ImageModalProps {
+type ImageModalImage = Pick<Image, "description"> & {
+	urls: Pick<Image["urls"], "regular">;
+};
+
+type ImageModalProps = {
 	isOpen: boolean;
 	onClose: () => void;
-	image: {
-		urls: {
-			regular: string;
-		};
-		description: string;
-	};
-}
+	image: ImageModalImage;
+};
 
 export default function ImageModal({
 	isOpen,
